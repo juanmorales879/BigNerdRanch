@@ -5,7 +5,7 @@ fun main(args: Array<String>) {
     val isImmortal = false
 
 // Aura
-    val auraColor = auraColor(isBlessed, healthPoints, isImmortal)
+    val auraColor = auraColorSingleExpression(isBlessed, healthPoints, isImmortal)
     val healthStatus = formatHealthStatus(healthPoints, isBlessed)
 // Player status
     printPlayerStatus(auraColor, isBlessed, name, healthStatus)
@@ -46,6 +46,12 @@ private fun auraColor(isBlessed: Boolean,
 private fun castFireball(numFireballs:Int = 2){
     println("A glass of fireball springs into existence (x$numFireballs)")
 }
+
+private fun auraColorSingleExpression(isBlessed: Boolean,
+                      healthPoints: Int,
+                      isImmortal: Boolean): String =
+    if (isBlessed && healthPoints > 50 || isImmortal) "Green"
+    else "None"
 
 /*
 Single expression functions
